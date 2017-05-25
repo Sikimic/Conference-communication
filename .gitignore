@@ -1,4 +1,9 @@
-.DS_STORE
 build.xml
-nbproject/
+build/
+/dist/
+src/conf/
+src/java/hibernate.cfg.xml
 web/WEB-INF/
+lib/
+nbproject/
+.DS_Store
