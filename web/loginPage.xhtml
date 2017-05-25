@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template/templatePage.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <div class="container">
+            <h1 class="text-center">
+                Welcome to the conference place
+            </h1>
+            <h2 class="text-center" style="margin-top:5em;">
+                Login
+            </h2>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <b:form>
+                        Username  <b:inputText class="input-group-sm" value="#{loginController.username}" />
+                        Password  <b:inputSecret class="input-group-sm" value="#{loginController.password}" />
+                        <b:commandButton value="LOGIN" class="btn btn-primary btn-full-width" action="#{loginController.login()}" />
+                    </b:form>  
+                </div>
+            </div>
+           
+        <h:form class="centered-div">
+<!--            <h:link value="Or continue to home page." outcome="home_unregistered.xhtml" style="color:lightcoral;" />-->
+        </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -3,6 +3,7 @@ build/
 /dist/
 src/conf/
 src/java/hibernate.cfg.xml
+src/java/hibernate.reveng.xml
 web/WEB-INF/
 lib/
 nbproject/
