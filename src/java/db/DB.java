@@ -23,7 +23,7 @@ import org.hibernate.service.ServiceRegistry;
 public class DB {
     private static Configuration cfg;
     private static ServiceRegistry serviceRegistry;
-    private static SessionFactory factory;
+    public static SessionFactory factory;
     public static User user = null;
     
     static {

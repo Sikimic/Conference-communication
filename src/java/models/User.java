@@ -1,12 +1,20 @@
 package models;
-// Generated May 25, 2017 7:52:21 PM by Hibernate Tools 4.3.1
+// Generated Jun 8, 2017 6:33:21 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -22,6 +30,7 @@ public class User  implements java.io.Serializable {
 
 
      private Integer id;
+     private Role role;
      private String username;
      private String password;
      private String email;
@@ -32,11 +41,28 @@ public class User  implements java.io.Serializable {
      private String image;
      private String shirtSize;
      private String linkedin;
+     private Set conferences = new HashSet(0);
+     private Set userAgendas = new HashSet(0);
 
     public User() {
     }
 
-    public User(String username, String password, String email, String name, String surname, String institution, String gender, String image, String shirtSize, String linkedin) {
+	
+    public User(Role role, String username, String password, String email, String name, String surname, String institution, String gender, String image, String shirtSize, String linkedin) {
+        this.role = role;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.institution = institution;
+        this.gender = gender;
+        this.image = image;
+        this.shirtSize = shirtSize;
+        this.linkedin = linkedin;
+    }
+    public User(Role role, String username, String password, String email, String name, String surname, String institution, String gender, String image, String shirtSize, String linkedin, Set conferences, Set userAgendas) {
+       this.role = role;
        this.username = username;
        this.password = password;
        this.email = email;
@@ -47,6 +73,8 @@ public class User  implements java.io.Serializable {
        this.image = image;
        this.shirtSize = shirtSize;
        this.linkedin = linkedin;
+       this.conferences = conferences;
+       this.userAgendas = userAgendas;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -59,6 +87,16 @@ public class User  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="role_id", nullable=false)
+    public Role getRole() {
+        return this.role;
+    }
+    
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     
@@ -159,6 +197,27 @@ public class User  implements java.io.Serializable {
     
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
+    }
+
+@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="user_conference", catalog="conference", joinColumns = { 
+        @JoinColumn(name="user_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="conference_id", nullable=false, updatable=false) })
+    public Set getConferences() {
+        return this.conferences;
+    }
+    
+    public void setConferences(Set conferences) {
+        this.conferences = conferences;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+    public Set getUserAgendas() {
+        return this.userAgendas;
+    }
+    
+    public void setUserAgendas(Set userAgendas) {
+        this.userAgendas = userAgendas;
     }
 
 
