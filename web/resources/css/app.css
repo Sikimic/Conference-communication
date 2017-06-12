@@ -11,3 +11,20 @@ and open the template in the editor.
 .btn-full-width {
     width: 100%;
 }
+
+.full-width {
+    width: 100%;
+}
+
+#top {}
+#content {
+    margin-bottom: 3em;
+}
+#bottom {
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    padding: 0.5em;
+}

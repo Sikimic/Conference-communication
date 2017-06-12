@@ -19,14 +19,10 @@ import org.hibernate.Session;
  */
 public class LoginService {
     public static User login(String username, String password){
-//        Session session = factory.openSession();
-//        Query query = session.getNamedQuery("User.findByUsername").setString("username", username);
-//        User resultUser = (User)query.uniqueResult();
-//        
-//        
-//        return resultUser;
         Session session = factory.openSession();
-        return null;
+        Query query = session.getNamedQuery("User.findByUsername").setString("username", username);
+        User resultUser = (User) query.uniqueResult();
+        return resultUser;
     }
     
     public static void logout() {

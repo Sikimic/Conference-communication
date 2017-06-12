@@ -1,5 +1,5 @@
 package models;
-// Generated Jun 8, 2017 6:33:21 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2017 10:46:59 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -32,9 +32,9 @@ public class Agenda  implements java.io.Serializable {
      private int timeCap;
      private String type;
      private int room;
-     private Set<UserAgenda> userAgendas = new HashSet(0);
-     private Set<Lecture> lectures = new HashSet(0);
-     private Set<GalleryPhoto> galleryPhotos = new HashSet(0);
+     private Set<UserAgenda> userAgendas = new HashSet<UserAgenda>(0);
+     private Set<Lecture> lectures = new HashSet<Lecture>(0);
+     private Set<GalleryPhoto> galleryPhotos = new HashSet<GalleryPhoto>(0);
 
     public Agenda() {
     }
@@ -47,7 +47,7 @@ public class Agenda  implements java.io.Serializable {
         this.type = type;
         this.room = room;
     }
-    public Agenda(String hall, Date date, int timeCap, String type, int room, Set userAgendas, Set lectures, Set galleryPhotos) {
+    public Agenda(String hall, Date date, int timeCap, String type, int room, Set<UserAgenda> userAgendas, Set<Lecture> lectures, Set<GalleryPhoto> galleryPhotos) {
        this.hall = hall;
        this.date = date;
        this.timeCap = timeCap;

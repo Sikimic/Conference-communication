@@ -1,5 +1,5 @@
 package models;
-// Generated Jun 8, 2017 6:33:21 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2017 10:46:59 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -27,7 +27,7 @@ public class Author  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<Lecture> lectures = new HashSet(0);
+     private Set<Lecture> lectures = new HashSet<Lecture>(0);
 
     public Author() {
     }
@@ -36,7 +36,7 @@ public class Author  implements java.io.Serializable {
     public Author(String name) {
         this.name = name;
     }
-    public Author(String name, Set lectures) {
+    public Author(String name, Set<Lecture> lectures) {
        this.name = name;
        this.lectures = lectures;
     }

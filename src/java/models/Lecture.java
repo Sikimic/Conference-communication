@@ -1,5 +1,5 @@
 package models;
-// Generated Jun 8, 2017 6:33:21 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2017 10:46:59 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -35,7 +35,7 @@ public class Lecture  implements java.io.Serializable {
      private Date beginTime;
      private Date endTime;
      private String status;
-     private Set<Author> authors = new HashSet(0);
+     private Set<Author> authors = new HashSet<Author>(0);
 
     public Lecture() {
     }
@@ -48,7 +48,7 @@ public class Lecture  implements java.io.Serializable {
         this.endTime = endTime;
         this.status = status;
     }
-    public Lecture(Agenda agenda, String title, Date beginTime, Date endTime, String status, Set authors) {
+    public Lecture(Agenda agenda, String title, Date beginTime, Date endTime, String status, Set<Author> authors) {
        this.agenda = agenda;
        this.title = title;
        this.beginTime = beginTime;

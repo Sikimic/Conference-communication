@@ -1,5 +1,5 @@
 package models;
-// Generated Jun 8, 2017 6:33:21 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2017 10:46:59 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,7 +25,7 @@ public class Role  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<User> users = new HashSet(0);
+     private Set<User> users = new HashSet<User>(0);
 
     public Role() {
     }
@@ -34,7 +34,7 @@ public class Role  implements java.io.Serializable {
     public Role(String name) {
         this.name = name;
     }
-    public Role(String name, Set users) {
+    public Role(String name, Set<User> users) {
        this.name = name;
        this.users = users;
     }

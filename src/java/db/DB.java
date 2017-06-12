@@ -33,21 +33,4 @@ public class DB {
         serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
         factory = cfg.buildSessionFactory(serviceRegistry);
     }
-    
-    public static Boolean register(User user) {
-        Session session = factory.openSession();
-//        Query query = session.getNamedQuery("User.findByUsername").setString("username", user.getUsername());
-//        User resultUser = (User)query.uniqueResult();
-//        if(resultUser!=null){
-//            session.close();
-//            return false;
-//        }
-//        session.getTransaction().begin();
-//        session.save(user);
-//        if(!session.getTransaction().wasCommitted())session.getTransaction().commit();
-//        session.close();
-        return true;
-    }
-    
-    
 }

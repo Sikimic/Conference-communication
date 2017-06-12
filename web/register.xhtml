@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template/templatePage.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <div class="container">
+            <h1 class="text-center">
+                Register here!
+            </h1>
+            <h4 class="text-center">
+                <h:outputText class="text-danger" value="#{registerController.message}" />
+            </h4>
+            <div class="row">
+                <b:form class="col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
+
+                    First Name  <b:inputText value="#{registerController.user.name}" />
+
+                    Last Name  <b:inputText value="#{registerController.user.surname}" />
+
+                    Username  <b:inputText value="#{registerController.user.username}" />
+
+                    Password  <b:inputSecret value="#{registerController.user.password}" />
+
+                    Confirm Password  <b:inputSecret value="#{registerController.password}" />
+
+                    Institution  <b:inputText value="#{registerController.user.institution}" />
+
+                    E-mail  <b:inputText value="#{registerController.user.email}" />
+                    
+                    Linkedin address  <b:inputText value="#{registerController.user.linkedin}" />
+                    
+                    <div>Gender</div>
+                    <b:panelGrid size="xs" columns="3">
+                        
+                        <b:radiobutton value="#{registerController.user.gender}" itemLabel="Male" itemValue="Male"/>
+                        <b:radiobutton value="#{registerController.user.gender}" itemLabel="Female" itemValue="Female"/>
+                    </b:panelGrid>
+                    
+                    <div>Shirt size</div>
+                    <b:panelGrid size="xs" columns="6">
+                        <b:radiobutton value="#{registerController.user.shirtSize}" itemLabel="S" itemValue="S"/>
+                        <b:radiobutton value="#{registerController.user.shirtSize}" itemLabel="M" itemValue="M"/>
+                        <b:radiobutton value="#{registerController.user.shirtSize}" itemLabel="L" itemValue="L"/>
+                        <b:radiobutton value="#{registerController.user.shirtSize}" itemLabel="XL" itemValue="XL"/>
+                        <b:radiobutton value="#{registerController.user.shirtSize}" itemLabel="XXL" itemValue="XXL"/>
+                    </b:panelGrid>
+                    <br/>
+                    <b:panelGrid size="xs" columns="3">
+                        Profile Image <h:inputFile value="#{registerController.user.image}"/>
+                    </b:panelGrid>
+                    <br/>
+                    <b:commandButton class="btn btn-default btn-full-width"  value="REGISTER" action="#{registerController.register()}" />
+                    <br/><br/><br/>
+                    
+                </b:form>
+            </div>
+           
+           
+        <h:form class="centered-div">
+<!--            <h:link value="Or continue to home page." outcome="home_unregistered.xhtml" style="color:lightcoral;" />-->
+        </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
