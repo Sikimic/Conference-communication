@@ -35,7 +35,7 @@ public class Lecture  implements java.io.Serializable {
      private Date beginTime;
      private Date endTime;
      private String status;
-     private Set authors = new HashSet(0);
+     private Set<Author> authors = new HashSet(0);
 
     public Lecture() {
     }
@@ -123,11 +123,11 @@ public class Lecture  implements java.io.Serializable {
     @JoinTable(name="author_lecture", catalog="conference", joinColumns = { 
         @JoinColumn(name="lecture_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="author_id", nullable=false, updatable=false) })
-    public Set getAuthors() {
+    public Set<Author> getAuthors() {
         return this.authors;
     }
     
-    public void setAuthors(Set authors) {
+    public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
 

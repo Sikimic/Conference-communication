@@ -38,7 +38,7 @@ public class Conference  implements java.io.Serializable {
      private String status;
      private int agendaId;
      private int galleryId;
-     private Set users = new HashSet(0);
+     private Set<User> users = new HashSet(0);
 
     public Conference() {
     }
@@ -174,11 +174,11 @@ public class Conference  implements java.io.Serializable {
     @JoinTable(name="user_conference", catalog="conference", joinColumns = { 
         @JoinColumn(name="conference_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) })
-    public Set getUsers() {
+    public Set<User> getUsers() {
         return this.users;
     }
     
-    public void setUsers(Set users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 

@@ -49,19 +49,5 @@ public class DB {
         return true;
     }
     
-    public static User login(String username, String password){
-        Session session = factory.openSession();
-        Query query = session.getNamedQuery("User.findByUsername").setString("username", username);
-        User resultUser = (User)query.uniqueResult();
-        
-        
-        return resultUser;
-    }
     
-    public static void logout() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
-        session.invalidate();
-        user = null;
-    }
 }

@@ -32,9 +32,9 @@ public class Agenda  implements java.io.Serializable {
      private int timeCap;
      private String type;
      private int room;
-     private Set userAgendas = new HashSet(0);
-     private Set lectures = new HashSet(0);
-     private Set galleryPhotos = new HashSet(0);
+     private Set<UserAgenda> userAgendas = new HashSet(0);
+     private Set<Lecture> lectures = new HashSet(0);
+     private Set<GalleryPhoto> galleryPhotos = new HashSet(0);
 
     public Agenda() {
     }
@@ -121,29 +121,29 @@ public class Agenda  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="agenda")
-    public Set getUserAgendas() {
+    public Set<UserAgenda> getUserAgendas() {
         return this.userAgendas;
     }
     
-    public void setUserAgendas(Set userAgendas) {
+    public void setUserAgendas(Set<UserAgenda> userAgendas) {
         this.userAgendas = userAgendas;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="agenda")
-    public Set getLectures() {
+    public Set<Lecture> getLectures() {
         return this.lectures;
     }
     
-    public void setLectures(Set lectures) {
+    public void setLectures(Set<Lecture> lectures) {
         this.lectures = lectures;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="agenda")
-    public Set getGalleryPhotos() {
+    public Set<GalleryPhoto> getGalleryPhotos() {
         return this.galleryPhotos;
     }
     
-    public void setGalleryPhotos(Set galleryPhotos) {
+    public void setGalleryPhotos(Set<GalleryPhoto> galleryPhotos) {
         this.galleryPhotos = galleryPhotos;
     }
 

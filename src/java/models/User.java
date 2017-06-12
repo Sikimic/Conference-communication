@@ -41,8 +41,8 @@ public class User  implements java.io.Serializable {
      private String image;
      private String shirtSize;
      private String linkedin;
-     private Set conferences = new HashSet(0);
-     private Set userAgendas = new HashSet(0);
+     private Set<Conference> conferences = new HashSet(0);
+     private Set<UserAgenda> userAgendas = new HashSet(0);
 
     public User() {
     }
@@ -203,20 +203,20 @@ public class User  implements java.io.Serializable {
     @JoinTable(name="user_conference", catalog="conference", joinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="conference_id", nullable=false, updatable=false) })
-    public Set getConferences() {
+    public Set<Conference> getConferences() {
         return this.conferences;
     }
     
-    public void setConferences(Set conferences) {
+    public void setConferences(Set<Conference> conferences) {
         this.conferences = conferences;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-    public Set getUserAgendas() {
+    public Set<UserAgenda> getUserAgendas() {
         return this.userAgendas;
     }
     
-    public void setUserAgendas(Set userAgendas) {
+    public void setUserAgendas(Set<UserAgenda> userAgendas) {
         this.userAgendas = userAgendas;
     }
 
